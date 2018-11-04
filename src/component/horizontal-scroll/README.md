@@ -7,14 +7,25 @@ import React from "react";
 import HorizontalScroll from "./horizontalscroll.jsx"
 
 const Item = ({id })=>{
+    ley style = {
+            background:"#1d87b1",
+            color:"#fff",
+            width:"120px",
+            height:"60px",
+            margin:"10px",
+            borderRadius:"6px",
+            textAlign:"center",
+            lineHeight:"60px"
+        }
+        
     return(
-        <li style={{background:"red"}} >
+        <li style={style} >
             {id}
         </li>
     )
 }
 
-const HotAuthor = ()=> {
+const List = ()=> {
     let data = [
         {id:"001"},
         {id:"002"},
@@ -33,5 +44,5 @@ const HotAuthor = ()=> {
         </HorizontalScroll>
     )
 }
-export default HotAuthor;
+export default List;
 ```
