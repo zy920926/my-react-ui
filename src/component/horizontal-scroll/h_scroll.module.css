@@ -1,0 +1,24 @@
+.out {
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.container {
+    overflow-x: scroll;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
+    -webkit-overflow-scrolling:touch; /*在移动端滚动更流畅*/
+    transition-timing-function: ease-in-out;
+}
+
+.container>ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container>ul {
+    display: inline-flex;
+}
+
