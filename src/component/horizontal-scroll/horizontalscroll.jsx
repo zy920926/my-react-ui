@@ -16,6 +16,7 @@ class HorizontalScroll extends Component {
     }
     touchStart(){
         this.setState({duration:"0s"})//清除css变换过渡，防止拖动到边界出错
+        //不能设置为0，否则setState并不会引起更新，估计是与react更新时对新的state判断造成的。所以我们设置成“0s”
     }
     touchMove(e){
         if( this.container.scrollLeft !== 0 &&
@@ -51,9 +52,8 @@ class HorizontalScroll extends Component {
                     onTouchMove={this.touchMove}
                     onTouchEnd={this.touchEnd}
                     style={{transform: `translateX(${this.state.x}px)`,transitionDuration:this.state.duration}}
-
                 >
-                    <ul ref={(node)=>{this.content = node}}>
+                    <ul ref={(node)=>{this.content = node}} >
                         {this.props.children}
                     </ul>
                 </div>
