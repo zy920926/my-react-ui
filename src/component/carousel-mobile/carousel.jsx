@@ -116,29 +116,13 @@ class Container extends Component {
                         <li style={{width:`${1/this.itemNum*100}%`,marginRight:`-${1/this.itemNum*100}%`}}>{this.props.children[0]}</li>
                         {/* 增加第一个item放在最后面*/}
                     </ul>
-                    <Point num={this.itemNum} index={1}/>
                 </div>
             </div>
         )
     }
 }
 
-const Point  = ({num,index})=>{
-    let points = [];
-    for(let i=0;i<num;i++){
-        points[i]=<li key={i} style={{opacity:index===i?"1":"0.5"}}></li>;
-    }
-    
-    return (
-        <div className={style.point}>
-            <ul>
-                {
-                   points.map((v)=>(v))
-                }
-            </ul>
-        </div>
-    )
-}
+
 
 const Item = (props) =>{
     return props.children
