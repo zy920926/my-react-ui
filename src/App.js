@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Switch,Route} from "react-router-dom";
-import HScroll from "./demo/h-scroll"
+import HScroll from "./demo/h-scroll";
+import myCarousel from "./demo/carousel"
 
 class App extends Component {
   render() {
@@ -8,7 +9,8 @@ class App extends Component {
       <div className="App">
         <Switch>
             <Route path="/hscroll" component={HScroll} />
-          </Switch>
+            <Route path="/carousel" component={myCarousel}/>
+        </Switch>
       </div>
     );
   }
