@@ -7,7 +7,7 @@ import React from "react";
 import HorizontalScroll from "./horizontalscroll.jsx"
 
 const Item = ({id })=>{
-    ley style = {
+    let style = {
             background:"#1d87b1",
             color:"#fff",
             width:"120px",
