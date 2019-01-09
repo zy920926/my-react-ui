@@ -3,17 +3,19 @@ import "./h_scroll.css";
 class HorizontalScroll extends React.Component {
     public state:any;
     public props:{style:{background:string},children:any};
-
-    private container:any = null;// 容器，ref引用
-    private content:any = null;// 内容，ref引用
-    private startX:number = NaN;// 滑到边界，记录当前手指x坐标为起始位置
+    private container:any;// 容器，ref引用
+    private content:any;// 内容，ref引用
+    private startX:number;// 滑到边界，记录当前手指x坐标为起始位置
     
     constructor(props:any){
         super(props);
         this.state = {
             duration:"0s",
             x:0,
-        }
+        };
+        this.container = null;
+        this.content = null;
+        this.startX = NaN;
         
         this.touchStart = this.touchStart.bind(this)
         this.touchMove = this.touchMove.bind(this);
