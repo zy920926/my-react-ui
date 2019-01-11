@@ -27,7 +27,13 @@ class HorizontalScroll extends Component {
             this.startX = e.touches[0].clientX
         }
         let offset = e.touches[0].clientX - this.startX;//计算手指滑动的位置
+        if(this.container.scrollLeft === 0 && offset < 0){
+            offset = 0;
+        }
 
+        if(this.container.scrollLeft + this.container.offsetWidth === this.content.offsetWidth && offset > 0){
+            offset = 0
+        }
         this.setState({x:offset*0.2});//滚动条尽头，移动滚动条容器，限制距离为手指滑动的0.2倍
     }
 
