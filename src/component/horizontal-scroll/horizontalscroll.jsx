@@ -19,7 +19,7 @@ class HorizontalScroll extends Component {
         const containerWidth = this.container.getBoundingClientRect().width;
         const contentWidth = this.content.getBoundingClientRect().width;
         const d = this.container.scrollLeft + containerWidth - contentWidth;
-        return Math.abs(d)< 0.5;// 靠近右边0.5内就算到达
+        return Math.abs(d) < 1;// 靠近右边1px内就算到达
     }
 
     isArrivedLeft(){
