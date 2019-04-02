@@ -15,29 +15,40 @@ class ImgOnlineSrc extends React.Component {
         opacity:0
     }
 
-    public duration = "0.2s";
+    // public duration = "0.2s";
     public opacity = 0;
 
+    /**
+     * 图片加载完成，强制执行render
+     */
     public onLoadHandler(){
-        this.opacity = 1;
+        if(this.opacity === 1){
+            return
+        }
         this.forceUpdate()
     }
 
-    public componentWillMount(){
+    public render() {
+        // 空src返回空img
+        if(this.props.src === ""){
+            return <img src="" 
+                style={this.props.style} 
+                className={this.props.className} 
+                alt={this.props.alt}
+            />
+        }
+
+        // 根据图片加载状况设置透明度
         if(this.isImdComplete()){
-            this.duration = "0";
             this.opacity = 1;
         }else{
-            this.duration = "0.2s";
             this.opacity = 0;
         }
-    }
-    
-    public render() {
+
         return <img  
             style={{
                 ...this.props.style,
-                transitionDuration:this.duration,
+                transitionDuration:"0.2s",
                 transitionTimingFunction:"ease-in-out",
                 opacity:this.opacity,
             }}
@@ -48,10 +59,14 @@ class ImgOnlineSrc extends React.Component {
         />
     }
 
+    /**
+     * 判断图片是否加载完成
+     */
     private isImdComplete:()=>boolean = ()=> {
         const myImg = new Image();    
-            myImg.src = this.props.src;    
-        if(myImg.complete) {    
+        myImg.src = this.props.src;    
+        const isComplete = myImg.complete
+        if(isComplete) {    
             return true;  
         }else{    
             return false;  
